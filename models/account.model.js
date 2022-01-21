@@ -38,7 +38,7 @@ module.exports = (sequelize, Sequelize) => {
     phonenumber: {
       // sdt
       type: Sequelize.STRING,
-      allowNull: false,
+      
     },
     description: {
       // mô tả thêm
@@ -51,7 +51,7 @@ module.exports = (sequelize, Sequelize) => {
     role: {
       type: Sequelize.STRING,
       allowNull:false,
-      defaultValue:"QTV"
+      defaultValue:"NVQL"
     },
   });
   return Account;

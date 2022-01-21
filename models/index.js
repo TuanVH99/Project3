@@ -6,7 +6,6 @@ const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   port: config.port,
 });
 
-
 const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
@@ -146,6 +145,12 @@ db.StatusReport = ["Chưa xử lý", "Đang xử lý", "Đã xử lý"];
 db.Roles = ["QTV", "NVQL"];
 db.IdTypes = ["CMND", "CCCD", "Hộ chiếu"];
 db.Genders = ["Nam", "Nữ", "Không xác định"];
+db.AdminAccount = {
+  account: "admin",
+  password: "admin",
+  fullname: "Tài khoản QTV",
+  role: db.Roles[0],
+};
 //---------functions--------
 db._setProfileCode = () => {};
 db._setCarContractCode = () => {};
