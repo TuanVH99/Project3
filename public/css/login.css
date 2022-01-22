@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    height: 100%;
+    min-height: 500px;
+    background-image: url("../images/bg/5137774.jpg");
+    /* background-position: center;  */
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+}
+form {
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Dongle', sans-serif; */
+    min-width: 400px;
+    width: 25%;
+    height: auto;
+}

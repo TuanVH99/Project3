@@ -5,11 +5,78 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Login</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+            integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="css/login.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
 
     <body>
-        login page
+
+
+
+
+        <div class="d-flex justify-content-center">
+            <form class="d-flex flex-column border border-1 rounded p-2 bg-light mt-5 shadow justify-content-between"
+                action="/login" method="post">
+                <legend class="text-center">Đăng nhập</legend>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="username" name="account"
+                        aria-describedby="accountLog" required>
+
+
+
+                    <div id="accountLog" class="invalid-feedback">
+
+                    </div>
+
+                    <label>Tài khoản</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" placeholder="password" name="password"
+                        aria-describedby="passwordLog" required>
+                    <div id="passwordLog" class="invalid-feedback">
+
+                    </div>
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="form-text mb-3 p-1">Nếu bạn không có tài khoản, vui lòng liên hệ Quản trị viên
+                    để
+                    biết thêm chi tiết.</div>
+                <button type="submit" class="btn btn-primary rounded">Đăng nhập</button>
+            </form>
+        </div>
+        <br>
+
     </body>
+    <script>
+        var form = $("form");
+        var inputAccount = $("input[name=account]");
+        var inputPassword = $("input[name=password]");
+        var accountLog = $("#accountLog")
+        var passwordLog = $("#passwordLog")
+        var accountValidate = `<%=locals.accountOk ? accountOk : null %>`
+        var passwordValidate = `<%=locals.passwordOk ? passwordOk : null %>`
+        var messageValidate = `<%=locals.message ? message : null %>`
+        if (!accountValidate) {
+            inputAccount.addClass('is-invalid')
+            inputPassword.addClass('is-invalid')
+            accountLog.text(messageValidate)
+            passwordLog.text("Lỗi dữ liệu")
+        } else if (!passwordValidate) {
+            inputPassword.addClass('is-invalid')
+            inputPassword.addClass('is-invalid');
+            passwordLog.text(messageValidate)
+        } else if (!accountLog && passwordLog) {
+            inputAccount.addClass('is-invalid')
+            inputPassword.addClass('is-invalid')
+            accountLog.text(messageValidate)
+            passwordLog.text("Lỗi dữ liệu")
+        }
+    </script>
+    <script src="js/pages/login.js"></script>
 
 </html>
